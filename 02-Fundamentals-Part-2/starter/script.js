@@ -145,44 +145,95 @@
 // 39. Introduction to Arrays
 //////////////////////////////////////////////
 
-const friends = ['Michael', 'Steven', 'Peter'];
-console.log(friends);
+// const friends = ['Michael', 'Steven', 'Peter'];
+// console.log(friends);
 
-// const years = new Array(1991, 1984, 2008, 2020);
+// // const years = new Array(1991, 1984, 2008, 2020);
 
-console.log(friends[0]);
-console.log(friends[2]);
+// console.log(friends[0]);
+// console.log(friends[2]);
 
-// Size of array
-console.log(friends.length);
-// Get last item in array
-console.log(friends[friends.length - 1]);
-// Mutate array (replace)
-friends[2] = 'Jay';
-console.log(friends);
+// // Size of array
+// console.log(friends.length);
+// // Get last item in array
+// console.log(friends[friends.length - 1]);
+// // Mutate array (replace)
+// friends[2] = 'Jay';
+// console.log(friends);
 
-// Array with different stuff
-const firstName = 'Jonas';
-const jonas = [firstName, 'Stuart', 2037 - 1991, 'teacher', friends];
-console.log(jonas);
-console.log(jonas.length);
+// // Array with different stuff
+// const firstName = 'Jonas';
+// const jonas = [firstName, 'Stuart', 2037 - 1991, 'teacher', friends];
+// console.log(jonas);
+// console.log(jonas.length);
 
-// Array exercise
-const calcAge = function (birthYear) {
-  return 2037 - birthYear;
+// // Array exercise
+// const calcAge = function (birthYear) {
+//   return 2037 - birthYear;
+// };
+
+// const years = [1990, 1967, 2002, 2010, 2018];
+
+// const age1 = calcAge(years[0]);
+// const age2 = calcAge(years[1]);
+// const age3 = calcAge(years[years.length - 1]);
+// console.log(age1, age2, age3);
+
+// const ages = [
+//   calcAge(years[0]),
+//   calcAge(years[1]),
+//   calcAge(years[years.length - 1]),
+// ];
+
+// console.log(ages);
+
+///////////////////////////////////////////////
+// 40. Basic Array Operations (Methods)
+//////////////////////////////////////////////
+
+// const friends = ['Michael', 'Steven', 'Peter'];
+
+// // Using push() method
+// const newLength = friends.push('Jay'); // returns the length of the new array
+// console.log(friends);
+// console.log(newLength);
+
+// // Using unshift() - adds elements to front of array
+// friends.unshift('John');
+// console.log(friends);
+
+// // Using pop() - remove last element of the array
+// friends.pop();
+// console.log(friends);
+
+// // Using shift() - removes first element of array
+// friends.shift();
+// console.log(friends);
+
+// // indexof() - which position is an element on
+// console.log(friends.indexOf('Steven'));
+// console.log(friends.indexOf('Bob'));
+
+// // includes() - boolean check if element exists
+// console.log(friends.includes('Steven'));
+// console.log(friends.includes('Bob'));
+
+///////////////////////////////////////////////
+// 41. Coding Exercise 6: CHALLENGE #2
+//////////////////////////////////////////////
+
+const calcTip = function (bill) {
+  if (bill >= 50 && bill <= 300) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
 };
 
-const years = [1990, 1967, 2002, 2010, 2018];
+// Testing calcTip function
+console.log(calcTip(100));
 
-const age1 = calcAge(years[0]);
-const age2 = calcAge(years[1]);
-const age3 = calcAge(years[years.length - 1]);
-console.log(age1, age2, age3);
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
-const ages = [
-  calcAge(years[0]),
-  calcAge(years[1]),
-  calcAge(years[years.length - 1]),
-];
-
-console.log(ages);
+console.log(tips);
