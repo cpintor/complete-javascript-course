@@ -222,18 +222,80 @@
 // 41. Coding Exercise 6: CHALLENGE #2
 //////////////////////////////////////////////
 
-const calcTip = function (bill) {
-  if (bill >= 50 && bill <= 300) {
-    return bill * 0.15;
-  } else {
-    return bill * 0.2;
-  }
+// const calcTip = function (bill) {
+//   if (bill >= 50 && bill <= 300) {
+//     return bill * 0.15;
+//   } else {
+//     return bill * 0.2;
+//   }
+// };
+
+// // Testing calcTip function
+// console.log(calcTip(100));
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+// console.log(tips);
+
+///////////////////////////////////////////////
+// 42. INTRODUCTION TO OBJECTS
+//////////////////////////////////////////////
+
+// // Object literal syntax
+// const jonas = {
+//   firstName: 'Jonas',
+//   lastName: 'Steven',
+//   age: 2037 - 1991,
+//   job: 'teacher',
+//   friennds: ['Michael', 'Peter', 'Steven'],
+// };
+
+///////////////////////////////////////////////
+// 43. DOT VS. BRACKET NOTATION
+//////////////////////////////////////////////
+
+// How retrieve data from objects
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Steven',
+  age: 2037 - 1991,
+  job: 'teacher',
+  friennds: ['Michael', 'Peter', 'Steven'],
 };
 
-// Testing calcTip function
-console.log(calcTip(100));
+// 1. Dot-notation
+console.log(jonas.lastName);
 
-const bills = [125, 555, 44];
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// 2. Bracket-notation
+console.log(jonas['lastName']);
 
-console.log(tips);
+// Get first and last name
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+// Access object property
+const interestedIn = prompt(
+  'What do you want to know about Jonas? Choose between firstName, lastName, age, and friends.'
+);
+// console.log(jonas[interestedIn]);
+
+if (jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log(
+    'Wrong request! Choose between firstName, lastName, age, and friends.'
+  );
+}
+
+// Use dot and bracket notation to add new properties to the object
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonassteven';
+console.log(jonas);
+
+// Challenge
+// "Jonas has 3 friends, and his best friend is called Michael"
+console.log(
+  `${jonas.firstName} has ${jonas.friennds.length} friends, and his best friend is called ${jonas.friennds[0]}`
+);
