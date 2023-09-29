@@ -299,3 +299,50 @@
 // console.log(
 //   `${jonas.firstName} has ${jonas.friennds.length} friends, and his best friend is called ${jonas.friennds[0]}`
 // );
+
+///////////////////////////////////////////////
+// 44. OBJECT METHODS
+//////////////////////////////////////////////
+
+// Adding functions to objects
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Steven',
+  birthYear: 1991,
+  job: 'teacher',
+  friennds: ['Michael', 'Peter', 'Steven'],
+  hasDriversLicense: true,
+  // function value similar to function expression
+  calcAge: function (birthYear) {
+    return 2037 - birthYear;
+  },
+  // Using the this keyword - equal to object calling method
+  //   calcAge: function () {
+  //     console.log(this);
+  //     return 2037 - this.birthYear;
+  //   },
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      jonas.job
+    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+  },
+};
+
+// Calling function value with dot notation
+console.log(jonas.calcAge(1991));
+// Calling function value with bracket notation
+// console.log(jonas['calcAge'](1991));
+// Calling function using this
+console.log(jonas.calcAge());
+// Calling this.age
+console.log(jonas.age);
+
+// Challenge
+// "Jonas is a 46-year old teacher, and he has a driver's license."
+console.log(jonas.getSummary());
