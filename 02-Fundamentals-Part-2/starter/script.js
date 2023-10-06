@@ -304,45 +304,84 @@
 // 44. OBJECT METHODS
 //////////////////////////////////////////////
 
-// Adding functions to objects
-const jonas = {
-  firstName: 'Jonas',
-  lastName: 'Steven',
-  birthYear: 1991,
-  job: 'teacher',
-  friennds: ['Michael', 'Peter', 'Steven'],
-  hasDriversLicense: true,
-  // function value similar to function expression
-  calcAge: function (birthYear) {
-    return 2037 - birthYear;
-  },
-  // Using the this keyword - equal to object calling method
-  //   calcAge: function () {
-  //     console.log(this);
-  //     return 2037 - this.birthYear;
-  //   },
+// // Adding functions to objects
+// const jonas = {
+//   firstName: 'Jonas',
+//   lastName: 'Steven',
+//   birthYear: 1991,
+//   job: 'teacher',
+//   friennds: ['Michael', 'Peter', 'Steven'],
+//   hasDriversLicense: true,
+//   // function value similar to function expression
+//   calcAge: function (birthYear) {
+//     return 2037 - birthYear;
+//   },
+//   // Using the this keyword - equal to object calling method
+//   //   calcAge: function () {
+//   //     console.log(this);
+//   //     return 2037 - this.birthYear;
+//   //   },
 
-  calcAge: function () {
-    this.age = 2037 - this.birthYear;
-    return this.age;
-  },
+//   calcAge: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
 
-  getSummary: function () {
-    return `${this.firstName} is a ${this.calcAge()}-year old ${
-      jonas.job
-    }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+//   getSummary: function () {
+//     return `${this.firstName} is a ${this.calcAge()}-year old ${
+//       jonas.job
+//     }, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+//   },
+// };
+
+// // Calling function value with dot notation
+// console.log(jonas.calcAge(1991));
+// // Calling function value with bracket notation
+// // console.log(jonas['calcAge'](1991));
+// // Calling function using this
+// console.log(jonas.calcAge());
+// // Calling this.age
+// console.log(jonas.age);
+
+// // Challenge
+// // "Jonas is a 46-year old teacher, and he has a driver's license."
+// console.log(jonas.getSummary());
+
+///////////////////////////////////////////////
+// Coding Exercise 7: CHALLENGE #3
+//////////////////////////////////////////////
+
+/* Write your code below. Good luck! 🙂 */
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
   },
 };
 
-// Calling function value with dot notation
-console.log(jonas.calcAge(1991));
-// Calling function value with bracket notation
-// console.log(jonas['calcAge'](1991));
-// Calling function using this
-console.log(jonas.calcAge());
-// Calling this.age
-console.log(jonas.age);
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
 
-// Challenge
-// "Jonas is a 46-year old teacher, and he has a driver's license."
-console.log(jonas.getSummary());
+mark.calcBMI();
+john.calcBMI();
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`
+  );
+}
