@@ -446,3 +446,33 @@
 
 //   console.log(jonas[i], typeof jonas[i]);
 // }
+
+///////////////////////////////////////////////
+// 48. Looping Backwards and Loops in Loops
+//////////////////////////////////////////////
+
+// // Backwards Loop
+// const jonas = [
+//   'Jonas',
+//   'Steven',
+//   2037 - 1991,
+//   'teacher',
+//   ['Michael', 'Peter', 'Steven'],
+//   true,
+// ];
+
+// // Looping over an array backwards
+// for (let i = jonas.length - 1; i >= 0; i--) {
+//   console.log(i, jonas[i]);
+// }
+
+// // Loop inside of loop
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`----- Starting exercise ${exercise}`);
+
+//   // This loop goes through all 5 iterations first
+//   // and then the outter loop goes into second iteration
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`);
+//   }
+// }
