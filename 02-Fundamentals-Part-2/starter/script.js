@@ -476,3 +476,32 @@
 //     console.log(`Exercise ${exercise}: Lifting weights repetition ${rep}`);
 //   }
 // }
+
+///////////////////////////////////////////////
+// 48. The While Loop
+//////////////////////////////////////////////
+
+// For loop as reference
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+
+// While Loop
+// Can only implement a condition and will
+// run while the condition is true
+
+// let rep = 1;
+// while (rep <= 10) {
+//   console.log(`Lifting weights repetition ${rep}`);
+//   rep++;
+// }
+
+// Example
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log('Loop is about to end');
+}
