@@ -12,8 +12,8 @@
 
 // Get a whole number from 1 to 20
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
-
 let score = 20;
+let highscore = 0;
 
 // Event listeners
 document.querySelector('.check').addEventListener('click', function () {
@@ -36,6 +36,12 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347';
     // Changing width of number
     document.querySelector('.number').style.width = '30rem';
+
+    // Check score to get highscore
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     // When guess is too high
   } else if (guess > secretNumber) {
@@ -82,6 +88,7 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.number').textContent = '?';
   document.querySelector('.message').textContent = 'Start guessing...';
   document.querySelector('.guess').value = '';
+
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 });
