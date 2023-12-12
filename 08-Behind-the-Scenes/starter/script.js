@@ -66,16 +66,62 @@
 // var addArrow = (a, b) => a + b;
 
 // Example
-if (!numProducts) {
-  deleteShoppingCart();
-}
+// if (!numProducts) {
+//   deleteShoppingCart();
+// }
 
-var numProducts = 10;
+// var numProducts = 10;
 
-function deleteShoppingCart() {
-  console.log('All products deleted.');
-}
+// function deleteShoppingCart() {
+//   console.log('All products deleted.');
+// }
 
-var x = 1;
-let y = 2;
-const z = 3;
+// var x = 1;
+// let y = 2;
+// const z = 3;
+
+/************/
+// The this keyword
+/************/
+
+// this keyword for Window object
+// console.log(this);
+
+// this keyword on a function expression
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this); // points to undefined, since points to its own this keyword
+};
+
+calcAge(1991); // results in undefined
+
+// This keyword on an arrow function
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  //console.log(this); // points to window since its using the this function of it's parent scope, which is the global scope
+};
+
+calcAgeArrow(1980); // results in window
+
+// this keyword on in an object
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    //console.log(this); // returns the "owner" of the method which is jonas object
+    console.log(2037 - this.year);
+  },
+};
+
+jonas.calcAge(); // jonas is the owner of the medthod
+
+const matilda = {
+  year: 2017,
+};
+
+// Performing "method borrowing" by assigning it from the jonas object
+matilda.calcAge = jonas.calcAge;
+matilda.calcAge(); // results in 20
+
+// Taking calcAge() out of jonas object and assigning it to variable f
+const f = jonas.calcAge;
+f();
