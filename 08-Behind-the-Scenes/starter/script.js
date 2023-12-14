@@ -37,9 +37,9 @@
 // const firstName = 'John';
 // calcAge(1991);
 
-/************/
+/********************/
 // Hoisting and TDZ
-/************/
+/********************/
 
 // Hoisting with variables
 // console.log(me);
@@ -80,48 +80,97 @@
 // let y = 2;
 // const z = 3;
 
-/************/
+/********************/
 // The this keyword
-/************/
+/********************/
 
 // this keyword for Window object
 // console.log(this);
 
 // this keyword on a function expression
-const calcAge = function (birthYear) {
-  console.log(2037 - birthYear);
-  console.log(this); // points to undefined, since points to its own this keyword
-};
+// const calcAge = function (birthYear) {
+//   console.log(2037 - birthYear);
+//   console.log(this); // points to undefined, since points to its own this keyword
+// };
 
-calcAge(1991); // results in undefined
+// calcAge(1991); // results in undefined
 
-// This keyword on an arrow function
-const calcAgeArrow = birthYear => {
-  console.log(2037 - birthYear);
-  //console.log(this); // points to window since its using the this function of it's parent scope, which is the global scope
-};
+// // This keyword on an arrow function
+// const calcAgeArrow = birthYear => {
+//   console.log(2037 - birthYear);
+//   //console.log(this); // points to window since its using the this function of it's parent scope, which is the global scope
+// };
 
-calcAgeArrow(1980); // results in window
+// calcAgeArrow(1980); // results in window, arrow functions do not get their own this keyword
 
-// this keyword on in an object
-const jonas = {
-  year: 1991,
-  calcAge: function () {
-    //console.log(this); // returns the "owner" of the method which is jonas object
-    console.log(2037 - this.year);
-  },
-};
+// // this keyword on in an object
+// const jonas = {
+//   year: 1991,
+//   calcAge: function () {
+//     //console.log(this); // returns the "owner" of the method which is jonas object
+//     console.log(2037 - this.year);
+//   },
+// };
 
-jonas.calcAge(); // jonas is the owner of the medthod
+// jonas.calcAge(); // jonas is the owner of the medthod
 
-const matilda = {
-  year: 2017,
-};
+// const matilda = {
+//   year: 2017,
+// };
 
-// Performing "method borrowing" by assigning it from the jonas object
-matilda.calcAge = jonas.calcAge;
-matilda.calcAge(); // results in 20
+// // Performing "method borrowing" by assigning it from the jonas object
+// matilda.calcAge = jonas.calcAge;
+// matilda.calcAge(); // results in 20
 
-// Taking calcAge() out of jonas object and assigning it to variable f
-const f = jonas.calcAge;
-f();
+// // Taking calcAge() out of jonas object and assigning it to variable f
+// const f = jonas.calcAge;
+// f();
+
+/********************/
+// Regular Functions vs. Arrow Functions
+/********************/
+
+// const jonas = {
+//   firstName: 'Jonas',
+//   year: 1991,
+//   calcAge: function () {
+//     //console.log(this); // returns the "owner" of the method which is jonas object
+//     console.log(2037 - this.year);
+
+//     // Solution 1
+//     // const self = this; // have access to the this keywork set to jonas
+//     // const isMillenial = function () {
+//     //   console.log(self);
+//     //   console.log(self.year >= 1981 && self.year <= 1996);
+//     // };
+
+//     // Solution 2
+//     // Arrow function's this keyword works because it uses the this keyword from it's parent
+//     const isMillenial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1981 && this.year <= 1996);
+//     };
+
+//     isMillenial();
+//   },
+
+//   greet: () => console.log(`Hey ${this.firstName}`), // returns undefined
+// };
+
+// jonas.greet();
+// jonas.calcAge();
+
+// // Arguments keyword
+// const addExpr = function (a, b) {
+//   console.log(arguments); // display the argyments passed to the function expressions
+//   return a + b;
+// };
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12); // it's possible to include more than two parameters
+
+// // Arguments keyword DOES NOT work in an arrow function
+// var addArrow = (a, b) => {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addArrow(2, 5, 8); // returns error
