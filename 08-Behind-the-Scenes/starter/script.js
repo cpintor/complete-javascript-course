@@ -174,3 +174,25 @@
 //   return a + b;
 // };
 // addArrow(2, 5, 8); // returns error
+
+/**********************************************************/
+// Primitives vs. Objects (Primitives vs. Reference Types)
+/**********************************************************/
+
+let age = 30;
+let oldAge = age; // age is still 30 at this point even though it was changed later in the program
+age = 31;
+
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+const friend = me;
+
+friend.age = 27;
+
+console.log('Friend:', friend);
+console.log('Me:', me);
