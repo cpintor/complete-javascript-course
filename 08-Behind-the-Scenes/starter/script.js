@@ -179,20 +179,64 @@
 // Primitives vs. Objects (Primitives vs. Reference Types)
 /**********************************************************/
 
-let age = 30;
-let oldAge = age; // age is still 30 at this point even though it was changed later in the program
-age = 31;
+// let age = 30;
+// let oldAge = age; // age is still 30 at this point even though it was changed later in the program
+// age = 31;
 
-console.log(age);
-console.log(oldAge);
+// console.log(age);
+// console.log(oldAge);
 
-const me = {
-  name: 'Jonas',
-  age: 30,
+// const me = {
+//   name: 'Jonas',
+//   age: 30,
+// };
+// const friend = me;
+
+// friend.age = 27;
+
+// console.log('Friend:', friend);
+// console.log('Me:', me);
+
+/**********************************************************/
+// Primitives vs. Objects in Practice
+/**********************************************************/
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName); // things work as expected
+
+// Referene Types Object
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
 };
-const friend = me;
 
-friend.age = 27;
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage:', marriedJessica);
 
-console.log('Friend:', friend);
-console.log('Me:', me);
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+// Merging two objects - shallow copy which only copies the properties
+// of a first level object
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+// console.log('Before marriage:', jessica2);
+// console.log('After marriage:', jessicaCopy);
+
+// Attempting to copy array inside object
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage:', jessica2);
+console.log('After marriage:', jessicaCopy);
