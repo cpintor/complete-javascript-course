@@ -41,6 +41,12 @@ const restaurant = {
       `Order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 /******************************/
@@ -87,52 +93,110 @@ const restaurant = {
 // console.log(p, q, r);
 
 /******************************/
-// 104. Destructuring Objects
+// 105. Destructuring Objects
 /******************************/
 
-// Write exact property names to extract object
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// // Write exact property names to extract object
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-// Renaming variables
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+// // Renaming variables
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
 
-// Giving objects a default value
-// setting object to '[]'
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// // Giving objects a default value
+// // setting object to '[]'
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
-// Mutating (changing properties of the variable)
-// variables while destructuring objects
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
+// // Mutating (changing properties of the variable)
+// // variables while destructuring objects
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
 
-// Need to wrap destructuring assigment in parenthesis
-({ a, b } = obj);
-console.log(a, b);
+// // Need to wrap destructuring assigment in parenthesis
+// ({ a, b } = obj);
+// console.log(a, b);
 
-// Nested objects
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// // Nested objects
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
 
-// Passing objects to function
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// // Passing objects to function
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
-// Object with default values
-restaurant.orderDelivery({
-  address: 'Via del Sole, 21',
-  starterIndex: 2,
-});
+// // Object with default values
+// restaurant.orderDelivery({
+//   address: 'Via del Sole, 21',
+//   starterIndex: 2,
+// });
+
+/******************************/
+// 106. The Spread Operator (...)
+/******************************/
+
+// // Manual way to add elements to array
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+// // Using spread operator
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+
+// // Expanding the array
+// console.log(...newArr);
+
+// // Example 1
+// // Building a new array from scratch by expanding array
+// // and adding a new element to it
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// // Important use cases of spread operator
+// // 1. Creating shallow copies of array
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// // 2. Merge two arrays together
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// // Iterables: arrays, strings, maps, sets but NOT objects
+
+// // Using strings
+// const str = 'Jonas';
+// const letters = [...str, '', 'S.'];
+// console.log(letters);
+// console.log(...str);
+
+// // Real world example
+// const ingredients = [
+//   // prompt("Let's make pasta! Ingredient 1?"),
+//   // prompt('Ingredient 2?'),
+//   // prompt('Ingredient 3?'),
+// ];
+
+// restaurant.orderPasta(...ingredients);
+// console.log(ingredients);
+
+// // Objects
+// const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+// console.log(newRestaurant);
+
+// // Making copy of the original restaurant
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
