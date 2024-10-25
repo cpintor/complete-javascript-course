@@ -47,6 +47,11 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 /******************************/
@@ -200,3 +205,51 @@ const restaurant = {
 // restaurantCopy.name = 'Ristorante Roma';
 // console.log(restaurantCopy.name);
 // console.log(restaurant.name);
+
+/***********************************/
+// 107. Rest Pattern and Parameters
+/***********************************/
+
+// // 1. DESTRUCTURING
+
+// // SPREAD operator being used on the RIGHT side of equal sign
+// const arr = [1, 2, ...[3, 4]];
+
+// // REST pattern is when the spread operator is
+// // used on the LEFT side of the equal sign
+// // and places the variables into a separate array
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// // Using REST pattern on both left and right sides of
+// // equal sign
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+
+// console.log(pizza, risotto, otherFood);
+
+// // Objects
+// // Taking out Saturday to be it's own variable
+// // and collecting the rest of the objects into a new obecjt, 'weekdays'
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+// // 2. FUNCTIONS
+// // Rest syntax takes multiple values and pack them into an array
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [25, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms');
