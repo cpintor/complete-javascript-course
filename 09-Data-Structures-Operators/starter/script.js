@@ -290,3 +290,16 @@ const restaurant = {
 // }
 
 // restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+/***********************************/
+// 109. The Nullish Coalescing Operator (??)
+/***********************************/
+
+// restaurant.numGuests = 0;
+// const guest = restaurant.numGuests || 10;
+// console.log(guest);
+
+// // ?? operator works with principle of nullish values
+// // Nullish: null and undefined (not or '')
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
