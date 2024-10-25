@@ -253,3 +253,40 @@ const restaurant = {
 
 // restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 // restaurant.orderPizza('mushrooms');
+
+/***********************************/
+// 108. Short Circuiting (&& and ||)
+/***********************************/
+
+// // Use any data type, return any data type,
+// // short circuting
+// console.log('---- OR ----');
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas'); // '' is a false evaluation
+// console.log(true || 0);
+// console.log(undefined || null); // undefined is a false evaluation, therefore null is printed
+
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null); // prints Hello because Hello is the first TRUE value
+
+// // Setting value to restaurant.numGuests so that it becomes true
+// restaurant.numGuests = 23;
+
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1); // returns 10 because restaurant.numGuests is empty
+
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
+
+// console.log('---- AND ----');
+// // AND operator shortcircuits when the first value is false
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+
+// console.log('Hello' && 23 && null && 'Jonas'); // null is the first false evaluation
+
+// // Practice example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
