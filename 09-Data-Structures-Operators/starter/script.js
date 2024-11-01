@@ -418,3 +418,20 @@ const restaurant = {
 // // 7.
 // team1 < team2 && console.log('Team 1 is more likely to win');
 // team1 > team2 && console.log('Team 2 is more likely to win');
+
+/***********************************/
+// 112. Looping Arrays: The for-of Loop
+/***********************************/
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// // Loops over entire array
+// for (const item of menu) console.log(item);
+
+// // Getting index of array elements
+// // Destructuring the item
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i[0] + 1}: ${el[1]}`);
+// }
+
+// // console.log([...menu.entries()]);
