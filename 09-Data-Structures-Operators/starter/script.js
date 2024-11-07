@@ -3,24 +3,24 @@
 /***********************************/
 // 113. Enhanced Object Literals
 /***********************************/
-// const weekdays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+const weekdays = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
 
 // // Object literal
-// const openingHours = {
-//   [weekdays[3]]: {
-//     open: 12,
-//     close: 22,
-//   },
-//   [weekdays[4]]: {
-//     open: 11,
-//     close: 23,
-//   },
-//   // computing property names
-//   [`day-${2 + 4}`]: {
-//     open: 0, // Open 24 hours
-//     close: 24,
-//   },
-// };
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  // computing property names
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 // Data needed for a later exercise
 const flights =
@@ -445,3 +445,40 @@ const restaurant = {
 // }
 
 // // console.log([...menu.entries()]);
+
+/***********************************/
+// 114. Optional Chaining (?.)
+/***********************************/
+// if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// // With conditional chaining
+// // only if monday exists then open will be read, otherwise undefined
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+
+// // Example
+// const days = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// // Methods
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// // Arrays
+// // Check if array is empty
+// const users = [
+//   {
+//     name: 'Jonas',
+//     email: 'hello@jonas.io',
+//   },
+// ];
+
+// console.log(users[0]?.name ?? 'User array empty');
+
+// // This is the equivalent of the code snipper above
+// if (users.length > 0) console.log(users[0].name);
+// else console.log('User array empty');
