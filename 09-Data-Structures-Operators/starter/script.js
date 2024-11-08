@@ -597,3 +597,51 @@ Lewand
 //   const teamStr = team == 'x' ? 'draw' : `victory ${game[team]}`;
 //   console.log(`Odd of ${teamStr} ${odd}`);
 // }
+
+/***********************************/
+// 117. Sets
+/***********************************/
+
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+
+// // All duplicates are gone
+// console.log(ordersSet);
+
+// // Strings are also iterable
+// console.log(new Set('Jonas'));
+
+// // Getting size of set
+// console.log(ordersSet.size);
+
+// // Check if a certain element is in a set
+// console.log(ordersSet.has('Bread'));
+
+// // Adding new elements to a set
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
+// ordersSet.delete('Risotto');
+// // ordersSet.clear();
+// console.log(ordersSet);
+
+// // Iterating over sets
+// for (const order of ordersSet) console.log(order);
+
+// // Main use caase is to remove duplicate values of arrays
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+// // Converting set to array using spread operator
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+// // Getting size of set/array
+// console.log(
+//   new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+// );
+// // Counting how many letters are in a set
+// console.log(new Set('jonasschmedtmann').size);
