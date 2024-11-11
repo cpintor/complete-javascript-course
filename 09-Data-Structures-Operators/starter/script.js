@@ -732,3 +732,9 @@ Lewand
 // console.log([...question]);
 // console.log([...question.keys()]);
 // console.log([...question.values()]);
+
+/***********************************/
+// 120. Summary: Which Data Structure to Use?
+/***********************************/
+
+// See notes: https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22648599#questions/16286450
