@@ -795,3 +795,48 @@ whether it's in the first half or second half (after 45 min) of the game, like t
 //   const half = min <= 45 ? 'FIRST' : 'SECOND';
 //   console.log(`[${half} HALF] ${min}: ${value}`);
 // }
+
+/*************************************/
+// 122. Working With Strings - Part 1
+/*************************************/
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// // Getting chracters from string
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]); // getting position of characeter direecly from a string
+
+// // METHODS
+// // Reading length of string
+// console.log(airline.length);
+// console.log('B737'.length);
+// // indexOf
+// console.log(airline.indexOf('r'));
+// console.log(airline.indexOf('Portugal'));
+// // lastIndexOf
+// console.log(airline.lastIndexOf('r'));
+// // Slice
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// // Without hardcodig values
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// // Define negative begin argument
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// // Function that recieves airplane seat and logs to console
+// // wether its a middle seat or now
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') console.log('You got the middle seat 😬');
+//   else console.log('You got lucky 😎');
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
