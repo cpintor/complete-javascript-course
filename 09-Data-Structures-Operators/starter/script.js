@@ -840,3 +840,67 @@ whether it's in the first half or second half (after 45 min) of the game, like t
 // checkMiddleSeat('11B');
 // checkMiddleSeat('23C');
 // checkMiddleSeat('3E');
+
+/*************************************/
+// 123. Working With Strings - Part 2
+/*************************************/
+// const airline = 'TAP Air Portugal';
+
+// console.log(airline.toLocaleLowerCase());
+// console.log(airline.toUpperCase());
+
+// // Fix capitalization in name
+// const passenger = 'jOnAS';
+// const passengerLower = passenger.toLocaleLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+
+// // Comparing emails
+// const email = 'hello@jonas.io';
+// const loginEmail = ' Hello@Jonas.Io \n';
+
+// // const lowerEmail = loginEmail.toLocaleLowerCase();
+// // const trimmedEmail = lowerEmail.trim();
+// // console.log(trimmedEmail);
+
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// console.log(email === normalizedEmail);
+
+// // Replace parts of strings
+// const priceGB = '288,97£';
+// const priceUS = priceGB.replace('£', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement =
+//   'All passengers come to boarding door 23. Boarding door 23!';
+// console.log(announcement.replace('door', 'gate'));
+// // Replace all occurances of door and gate
+// console.log(announcement.replaceAll('door', 'gate'));
+// // Using regex
+// console.log(announcement.replace(/door/g, 'gate'));
+
+// // Boolean methods
+// const plane = 'Airbus A320neo';
+// // Does it include 'A320neo?
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('Airb'));
+
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the new Airbus family');
+// }
+
+// // Practice excercise
+// const checkbaggage = function (items) {
+//   const baggage = items.toLocaleLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are NOT allowed on board');
+//   } else {
+//     console.log('Welcome aboard!');
+//   }
+// };
+// checkbaggage('I have a laptop, some Food and a pocket Knife');
+// checkbaggage('Socks and camera');
+// checkbaggage('Got some snacks and a gun for protection');
