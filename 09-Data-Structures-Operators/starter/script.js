@@ -985,3 +985,21 @@ whether it's in the first half or second half (after 45 min) of the game, like t
 //     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
 //   }
 // });
+
+/*************************************/
+// 126. String Methods Practice
+/*************************************/
+
+// // Working with the flights variable
+// const getCode = str => str.slice(0, 3).toUpperCase();
+
+// for (const flight of flights.split('+')) {
+//   // Destructuring
+//   const [type, from, to, time] = flight.split(';');
+//   // Formatting
+//   const output = `${type.startsWith('_Delayed') ? '🔴' : ''} ${type.replaceAll(
+//     '_',
+//     ' '
+//   )} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
+//   console.log(output);
+// }
