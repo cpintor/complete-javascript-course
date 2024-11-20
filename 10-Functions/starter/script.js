@@ -69,3 +69,9 @@
 
 // newPassport(jonas);
 // checkIn(flight, jonas);
+
+/*************************************/
+// 131. First-Class and Higher-Order Functions
+/*************************************/
+
+// Lecture video: https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22648649#questions
