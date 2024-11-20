@@ -75,3 +75,36 @@
 /*************************************/
 
 // Lecture video: https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/22648649#questions
+
+/*************************************/
+// 132. Functions Accepting Callback Functions
+/*************************************/
+// // Callback function
+// const oneWord = function (str) {
+//   return str.replace(/ /g, '').toLowerCase();
+// };
+// // Callback function
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
+
+// // High-order function: takes in another function
+// const transformer = function (str, fn) {
+//   console.log(`Original string: ${str}`);
+//   console.log(`Transform string: ${fn(str)}`);
+//   console.log(`Transformed by: ${fn.name}`);
+// };
+
+// // Only passing value of upperFirstWord
+// transformer('Javascript is the best!', upperFirstWord);
+// transformer('Javascript is the best!', oneWord);
+
+// // Another example of using high5 as a callback function on addEventListener
+// const high5 = function () {
+//   console.log('👋');
+// };
+// document.body.addEventListener('click', high5);
+
+// // Using high5 callback function again
+// ['Jonas', 'Martha', 'Adam'].forEach(high5);
