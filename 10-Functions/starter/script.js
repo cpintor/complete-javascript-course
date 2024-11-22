@@ -108,3 +108,24 @@
 
 // // Using high5 callback function again
 // ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+/*************************************/
+// 133. Functions Returning Functions
+/*************************************/
+// Function returning a new function
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+// const greeterHey = greet('Hey');
+// // Caling the function greet() and passing 'Jonas' as the name
+// greeterHey('Jonas');
+// greeterHey('Steven');
+// // Calling the returned function in a single line
+// greet('Hello')('Jonas');
+
+// // Challenge using arrow functions
+// const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+// greetArr('Hi')('Jonas');
