@@ -129,3 +129,63 @@
 // // Challenge using arrow functions
 // const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 // greetArr('Hi')('Jonas');
+
+/*************************************/
+// 134. The call and apply Methods
+/*************************************/
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   bookings: [],
+//   // Ehanced object literal syntax
+//   book(flightNum, name) {
+//     console.log(
+//       // using this keyword which points to the lufthansa object itself
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   },
+// };
+
+// lufthansa.book(239, 'Jonas Schmedtmann');
+// lufthansa.book(635, 'John Smith');
+// console.log(lufthansa);
+
+// // New object
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   bookings: [],
+// };
+
+// // Storing book method from lufthansa object into book
+// const book = lufthansa.book;
+// // Does not work
+// // book(23, 'Sara Williams');
+
+// // Works
+// // Setting eurowings as our this keyword, then all arguments are the
+// // arguments of the original function
+// book.call(eurowings, 23, 'Sarah Williams');
+// console.log(eurowings);
+
+// book.call(lufthansa, 239, 'Mary Cooper');
+// console.log(lufthansa);
+
+// // Creating new airlines
+// const swiss = {
+//   airline: 'Swiss Air Lines',
+//   iataCode: 'LX',
+//   bookings: [],
+// };
+
+// book.call(swiss, 583, 'Mary Cooper');
+// console.log(swiss);
+
+// // Apply method - does no recieve a list of arguments
+// const flightData = [583, 'George Cooper'];
+// book.apply(swiss, flightData); // apply() is not used much in JS anymore
+// console.log(swiss);
+
+// // We can still use call() instead of apply() using spread operator
+// book.call(swiss, ...flightData);
