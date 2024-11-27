@@ -133,59 +133,107 @@
 /*************************************/
 // 134. The call and apply Methods
 /*************************************/
-// const lufthansa = {
-//   airline: 'Lufthansa',
-//   iataCode: 'LH',
-//   bookings: [],
-//   // Ehanced object literal syntax
-//   book(flightNum, name) {
-//     console.log(
-//       // using this keyword which points to the lufthansa object itself
-//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-//     );
-//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-//   },
-// };
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // Ehanced object literal syntax
+  book(flightNum, name) {
+    console.log(
+      // using this keyword which points to the lufthansa object itself
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
 
-// lufthansa.book(239, 'Jonas Schmedtmann');
-// lufthansa.book(635, 'John Smith');
-// console.log(lufthansa);
+lufthansa.book(239, 'Jonas Schmedtmann');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
 
-// // New object
-// const eurowings = {
-//   airline: 'Eurowings',
-//   iataCode: 'EW',
-//   bookings: [],
-// };
+// New object
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
 
-// // Storing book method from lufthansa object into book
-// const book = lufthansa.book;
-// // Does not work
-// // book(23, 'Sara Williams');
+// Storing book method from lufthansa object into book
+const book = lufthansa.book;
+// Does not work
+// book(23, 'Sara Williams');
 
-// // Works
-// // Setting eurowings as our this keyword, then all arguments are the
-// // arguments of the original function
+// Works
+// Setting eurowings as our this keyword, then all arguments are the
+// arguments of the original function
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+// Creating new airlines
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+
+// Apply method - does no recieve a list of arguments
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData); // apply() is not used much in JS anymore
+console.log(swiss);
+
+// We can still use call() instead of apply() using spread operator
+book.call(swiss, ...flightData);
+
+/*************************************/
+// 134. The bind Method
+/*************************************/
+// Bind method
+// Returns new this keyword that is bound - set to whatever value we pass into bind()
 // book.call(eurowings, 23, 'Sarah Williams');
-// console.log(eurowings);
+// const bookEW = book.bind(eurowings);
+// const bookLH = book.bind(lufthansa);
+// const bookLX = book.bind(swiss);
 
-// book.call(lufthansa, 239, 'Mary Cooper');
-// console.log(lufthansa);
+// bookEW(23, 'Stevemn Williams');
+// // Using bind to use one specific airline and flight #
+// const bookEW23 = book.bind(eurowings, 23);
+// bookEW23('Jonas Schmedtmann');
+// bookEW23('Martha Cooper');
 
-// // Creating new airlines
-// const swiss = {
-//   airline: 'Swiss Air Lines',
-//   iataCode: 'LX',
-//   bookings: [],
+// // Using bind with objects and event listeners
+// lufthansa.planes = 300;
+// lufthansa.buyPlane = function () {
+//   console.log(this);
+
+//   // Adding a new plane when clicking on button
+//   this.planes++;
+//   console.log(this.plane);
+// };
+// document.querySelector('.buy').addEventListener(
+//   'click',
+//   lufthansa.buyPlane.bind(lufthansa) //this keyword not points to lufthansa
+// );
+
+// // Partial application - presetting peramiters
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+// const addVAT = addTax.bind(null, 0.23);
+// console.log(addVAT(100));
+// console.log(addVAT(23));
+
+// const addTaxRate = function (rate) {
+//   return function (value) {
+//     return value + value * rate;
+//   };
 // };
 
-// book.call(swiss, 583, 'Mary Cooper');
-// console.log(swiss);
-
-// // Apply method - does no recieve a list of arguments
-// const flightData = [583, 'George Cooper'];
-// book.apply(swiss, flightData); // apply() is not used much in JS anymore
-// console.log(swiss);
-
-// // We can still use call() instead of apply() using spread operator
-// book.call(swiss, ...flightData);
+// const addVAT2 = addTaxRate(0.23);
+// console.log(addVAT2(100));
+// console.log(addVAT2(23));
