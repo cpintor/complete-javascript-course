@@ -286,3 +286,23 @@
 // // Extra
 // // Using the call method to manually set this keyword to a new object
 // poll.displayResults.call({ answers: [5, 2, 3] });
+
+/*****************************************************/
+// 137. Immedietly Invoked Function Expressions (IIFE)
+/*****************************************************/
+// // How we declare functions
+// const runOnce = function () {
+//   console.log('This will never run again');
+// };
+// runOnce();
+
+// // Executing a function immedeitly without saving it somewhere
+// // Wrapping the function in parentheses and then calling it immedietly
+// (function () {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// })();
+// console.log(isPrivate);
+
+// // Same method being used for arrow functions
+// (() => console.log('This will also never run again'))();
