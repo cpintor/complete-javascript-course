@@ -331,3 +331,50 @@
 
 // // Finding the closure of the function using console.dir()
 // console.dir(booker);
+
+/*****************************************************/
+// 138. More Closure Examples
+/*****************************************************/
+
+// // Example 1
+// let f;
+
+// const g = function () {
+//   const a = 23;
+//   // f function born in g()
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
+
+// const h = function () {
+//   const b = 777;
+//   // then f function reborn in h()
+//   f = function () {
+//     console.log(b * 2);
+//   };
+// };
+
+// g();
+// f();
+// console.dir(f); // a = 23
+
+// // Re-assigning f function in h()
+// h();
+// f();
+// console.dir(f); // b = 777
+
+// // Example 2
+// const boardPassengers = function (n, wait) {
+//   const perGroup = n / 3;
+
+//   setTimeout(function () {
+//     console.log(`We are not boarding all ${n} passengers`);
+//     console.log(`There are 3 groups, each with ${perGroup} passengers`);
+//   }, wait * 1000);
+
+//   console.log(`Will start boarding in ${wait} secods`);
+// };
+
+// const perGroup = 1000;
+// boardPassengers(180, 3);
