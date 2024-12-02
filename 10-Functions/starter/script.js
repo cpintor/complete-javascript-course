@@ -133,62 +133,62 @@
 /*************************************/
 // 134. The call and apply Methods
 /*************************************/
-const lufthansa = {
-  airline: 'Lufthansa',
-  iataCode: 'LH',
-  bookings: [],
-  // Ehanced object literal syntax
-  book(flightNum, name) {
-    console.log(
-      // using this keyword which points to the lufthansa object itself
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-    );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-  },
-};
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   bookings: [],
+//   // Ehanced object literal syntax
+//   book(flightNum, name) {
+//     console.log(
+//       // using this keyword which points to the lufthansa object itself
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   },
+// };
 
-lufthansa.book(239, 'Jonas Schmedtmann');
-lufthansa.book(635, 'John Smith');
-console.log(lufthansa);
+// lufthansa.book(239, 'Jonas Schmedtmann');
+// lufthansa.book(635, 'John Smith');
+// console.log(lufthansa);
 
-// New object
-const eurowings = {
-  airline: 'Eurowings',
-  iataCode: 'EW',
-  bookings: [],
-};
+// // New object
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   bookings: [],
+// };
 
-// Storing book method from lufthansa object into book
-const book = lufthansa.book;
-// Does not work
-// book(23, 'Sara Williams');
+// // Storing book method from lufthansa object into book
+// const book = lufthansa.book;
+// // Does not work
+// // book(23, 'Sara Williams');
 
-// Works
-// Setting eurowings as our this keyword, then all arguments are the
-// arguments of the original function
-book.call(eurowings, 23, 'Sarah Williams');
-console.log(eurowings);
+// // Works
+// // Setting eurowings as our this keyword, then all arguments are the
+// // arguments of the original function
+// book.call(eurowings, 23, 'Sarah Williams');
+// console.log(eurowings);
 
-book.call(lufthansa, 239, 'Mary Cooper');
-console.log(lufthansa);
+// book.call(lufthansa, 239, 'Mary Cooper');
+// console.log(lufthansa);
 
-// Creating new airlines
-const swiss = {
-  airline: 'Swiss Air Lines',
-  iataCode: 'LX',
-  bookings: [],
-};
+// // Creating new airlines
+// const swiss = {
+//   airline: 'Swiss Air Lines',
+//   iataCode: 'LX',
+//   bookings: [],
+// };
 
-book.call(swiss, 583, 'Mary Cooper');
-console.log(swiss);
+// book.call(swiss, 583, 'Mary Cooper');
+// console.log(swiss);
 
-// Apply method - does no recieve a list of arguments
-const flightData = [583, 'George Cooper'];
-book.apply(swiss, flightData); // apply() is not used much in JS anymore
-console.log(swiss);
+// // Apply method - does no recieve a list of arguments
+// const flightData = [583, 'George Cooper'];
+// book.apply(swiss, flightData); // apply() is not used much in JS anymore
+// console.log(swiss);
 
-// We can still use call() instead of apply() using spread operator
-book.call(swiss, ...flightData);
+// // We can still use call() instead of apply() using spread operator
+// book.call(swiss, ...flightData);
 
 /*************************************/
 // 134. The bind Method
@@ -237,3 +237,52 @@ book.call(swiss, ...flightData);
 // const addVAT2 = addTaxRate(0.23);
 // console.log(addVAT2(100));
 // console.log(addVAT2(23));
+
+/*************************************/
+// CHALLENGE #1
+/*************************************/
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section 😃
+//   answers: new Array(4).fill(0),
+// };
+
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     // Get answer
+//     const answer = Number(
+//       prompt(
+//         `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+//       )
+//     );
+//     console.log(answer);
+
+//     // Register answer
+//     typeof answer === 'number' &&
+//       answer < this.answers.length &&
+//       this.answers[answer]++;
+
+//     // Printing both types of results
+//     this.displayResults();
+//     this.displayResults('string');
+//   },
+//   displayResults(type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answers);
+//     } else if (type === 'string') {
+//       console.log(`Poll results are ${this.answers.join(', ')}`);
+//     }
+//   },
+// };
+
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll)); // using bind() so this keyword points to poll object
+
+// // Extra
+// // Using the call method to manually set this keyword to a new object
+// poll.displayResults.call({ answers: [5, 2, 3] });
