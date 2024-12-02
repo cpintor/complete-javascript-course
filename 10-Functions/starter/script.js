@@ -306,3 +306,28 @@
 
 // // Same method being used for arrow functions
 // (() => console.log('This will also never run again'))();
+
+/*****************************************************/
+// 138. Closures
+/*****************************************************/
+
+// // A closure makes a function remember all the variables
+// // that existed at the function's birthplace
+// const secureBooking = function () {
+//   let passengerCount = 0;
+
+//   return function () {
+//     passengerCount++;
+//     console.log(`${passengerCount} passengers`);
+//   };
+// };
+
+// const booker = secureBooking();
+
+// // Calling booker function which exectures the return function in secreBooking()
+// booker(); // 1 passengers
+// booker(); // 2 passengers
+// booker(); // 3 passengers
+
+// // Finding the closure of the function using console.dir()
+// console.dir(booker);
