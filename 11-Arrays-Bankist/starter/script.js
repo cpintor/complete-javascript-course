@@ -74,3 +74,39 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+/*****************************************************/
+// 143. Simple Array Methods
+/*****************************************************/
+// SLICE
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(-2)); // getting last two elements of array
+// console.log(arr.slice(-1)); // getting the last element of array
+// console.log(arr.slice(1, -2)); // extracting a position 1, execept last two
+
+// // Using slice method to create shallow copy of array
+// console.log(arr.slice()); // using slice method
+// console.log([...arr]); // using spread operator
+
+// // SPLICE
+// // console.log(arr.splice(2)); // splice takes part of the array and returns it
+// arr.splice(-1); // mutates array
+// console.log(arr);
+// arr.splice(1, 2); // b and d are delated
+// console.log(arr); // arr has remaining elements removed with splice
+
+// // REVERSE
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// console.log(arr2.reverse()); // reverse the array and mutates it
+
+// // CONCAT
+// const letters = arr.concat(arr2);
+// console.log(letters);
+// // doing same thing with spread operator
+// console.log([...arr, ...arr2]);
+
+// // JOIN
+// console.log(letters.join('-'));
