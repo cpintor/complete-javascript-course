@@ -110,3 +110,20 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // // JOIN
 // console.log(letters.join('-'));
+
+/*****************************************************/
+// 144. The New at Method
+/*****************************************************/
+// const arr = [23, 11, 64];
+// console.log(arr[0]);
+// // Using at method
+// console.log(arr.at(0)); // instead of using arr[0] we use at()
+
+// // Getting last element of array
+// console.log(arr[arr.length - 1]); // using old way
+// console.log(arr.slice(-1)[0]); // using slice
+// console.log(arr.at(-1)); // using at()
+
+// // at() also works on strings
+// console.log('jonas'.at(0));
+// console.log('jonas'.at(-1));
