@@ -237,7 +237,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
 /*****************************************************/
-// 150. The map method
+// 151. The map method
 /*****************************************************/
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -267,3 +267,26 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //     )}`
 // );
 // console.log(movementsDescriptions);
+
+/*****************************************************/
+// 152. Computing Usernames
+/*****************************************************/
+
+// const user = 'Steven Thomas Williams';
+
+// const createUsernames = function (accs) {
+//   // Looping through each account
+//   accs.forEach(function (acc) {
+//     acc.userName = acc.owner
+//       .toLowerCase()
+//       .split(' ')
+//       // Using map() to create a new array from user
+//       .map(
+//         name => name[0] //return first letter of each name
+//       )
+//       .join(''); // using join() to put together the letters
+//   });
+// };
+
+// createUsernames(accounts);
+// console.log(accounts);
