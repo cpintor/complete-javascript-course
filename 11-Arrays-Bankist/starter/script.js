@@ -235,3 +235,35 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 // // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 // checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+/*****************************************************/
+// 150. The map method
+/*****************************************************/
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const euroToUSD = 1.1;
+
+// // Using map method with callaback function
+// // const movementsUSD = movements.map(function (mov) {
+// //   return mov * euroToUSD;
+// // });
+
+// // Simplyfing by using arrow function
+// const movementsUSD = movements.map(mov => mov * euroToUSD);
+
+// console.log(movements); // orgional array was not mutated
+// console.log(movementsUSD); // new array with new elements
+
+// // Writing same thing using for of loop
+// const movementsUSDfor = [];
+// for (const mov of movements) movementsUSDfor.push(mov * euroToUSD);
+// console.log(movementsUSDfor);
+
+// // Map method has access to 3 parameters
+// const movementsDescriptions = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+//       mov
+//     )}`
+// );
+// console.log(movementsDescriptions);
