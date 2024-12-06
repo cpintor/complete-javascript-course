@@ -183,28 +183,28 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // 148. Creating DOM Elements
 /*****************************************************/
 // Display movements from accounts
-// const displayMovements = function (movements) {
-//   // Emptying movements container
-//   containerMovements.innerHTML = '';
+const displayMovements = function (movements) {
+  // Emptying movements container
+  containerMovements.innerHTML = '';
 
-//   movements.forEach(function (mov, i) {
-//     const type = mov > 0 ? 'deposit' : 'withdrawal';
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
 
-//     // Displaying movements
-//     const html = `
-//       <div class="movements__row">
-//         <div class="movements__type movements__type--${type}">${
-//       i + 1
-//     } ${type}</div>
-//         <div class="movements__value">${mov}</div>
-//       </div>
-//     `;
+    // Displaying movements
+    const html = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+        <div class="movements__value">${mov}</div>
+      </div>
+    `;
 
-//     // Adding new child elements right after movement element
-//     containerMovements.insertAdjacentHTML('afterbegin', html);
-//   });
-// };
-// displayMovements(account1.movements);
+    // Adding new child elements right after movement element
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
 
 /*****************************************************/
 // 149. Coding Challenge #1
@@ -313,3 +313,42 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // const withdrawals = movements.filter(mov => mov < 0);
 
 // console.log(withdrawals);
+
+/*****************************************************/
+// 154. The reduce method
+/*****************************************************/
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// // Accumulator param is like a snowball
+// // const balance = movements.reduce(function (acc, cur, i, arr) {
+// //   console.log(`Iteration ${i}: ${acc}`);
+// //   return acc + cur;
+// // }, 0); // we start counting at 0
+
+// // console.log(balance);
+
+// // Using for of loop
+// let balance2 = 0;
+// for (const mov of movements) balance2 += mov;
+// console.log(balance2);
+
+// // Using arrow function
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
+
+// console.log(balance);
+
+// // Calculate the balance based on array
+// const calcDisplayBalance = function (movements) {
+//   const balance = movements.reduce((acc, mov) => acc + mov, 0);
+//   labelBalance.textContent = `${balance} EUR`;
+// };
+
+// calcDisplayBalance(account1.movements);
+
+// // Maximum value
+// const max = movements.reduce((acc, mov) => {
+//   if (acc > mov) return acc;
+//   else return mov;
+// }, movements[0]); // placing first value of array
+
+// console.log(max);
