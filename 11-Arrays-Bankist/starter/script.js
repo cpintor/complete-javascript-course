@@ -120,7 +120,7 @@ const calcDisplaySummary = function (movements) {
     .map(deposit => (deposit * 1.2) / 100)
     // exclude interests that are below 1
     .filter((int, i, arr) => {
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -481,3 +481,18 @@ Test data:
 // const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 // const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 // console.log(avg1, avg2);
+
+/*****************************************************/
+// 158. The find method
+/*****************************************************/
+
+// find() returns the first element of the array
+// that satisfies condition and not the entire array
+// const firstWithdrawal = movements.find(mov => mov < 0);
+// console.log(movements);
+// console.log(firstWithdrawal); // prints out -400
+
+// console.log(accounts);
+
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
