@@ -188,6 +188,24 @@ btnTransfer.addEventListener('click', function (e) {
     updateUI(currentAccount);
   }
 });
+
+// Get loan
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.value = '';
+});
+
 // Close account btn
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
@@ -595,3 +613,26 @@ Test data:
 //     movements.length - latestLargeMovementIndex
 //   } movements ago`
 // );
+
+/*****************************************************/
+// 167. some and every
+/*****************************************************/
+// console.log(movements);
+// // Equality
+// console.log(movements.includes(-130));
+
+// // Testing for a condition with some()
+// console.log(movements.some(mov => mov === -130));
+// const anyDeposits = movements.some(mov => mov > 0);
+// console.log(anyDeposits);
+
+// // Every
+// // check if everything returns true
+// console.log(movements.every(mov => mov > 0)); // returns false
+// console.log(account4.movements.every(mov => mov > 0)); // returns true
+
+// // Seperate callback
+// const deposit = mov => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
