@@ -576,3 +576,22 @@ Test data:
 
 // const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 // console.log(account);
+
+/*****************************************************/
+// 166. The New findLast amd findLastIndex Methods
+/*****************************************************/
+// console.log(movements);
+
+// const lastWithdrawal = movements.findLast(mov => mov < 0); // finding last value that is less than 0
+// console.log(lastWithdrawal);
+
+// 'Your lastest large movement was x movements ago'
+// const latestLargeMovementIndex = movements.findLastIndex(
+//   mov => Math.abs(mov) > 1000
+// );
+// console.log(latestLargeMovementIndex);
+// console.log(
+//   `Your lastest large movement was ${
+//     movements.length - latestLargeMovementIndex
+//   } movements ago`
+// );
