@@ -636,3 +636,33 @@ Test data:
 // console.log(movements.some(deposit));
 // console.log(movements.every(deposit));
 // console.log(movements.filter(deposit));
+
+/*****************************************************/
+// 168. flat and flatpMap
+/*****************************************************/
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat()); // removes nested array and flattens array
+
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat()); // flat() only goes one level deep and flattening arrays
+// console.log(arrDeep.flat(2)); // flar(2) goes two levels deep to flatten array completely
+
+// // const accountMovements = accounts.map(acc => acc.movements);
+// // console.log(accountMovements);
+// // const allMovements = accountMovements.flat(); // flattening all of the movements
+// // console.log(allMovements);
+// // const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0); // adding all movements
+// // console.log(overalBalance);
+
+// // Chaining all methods with flat()
+// const overalBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance);
+
+// // flatMap() combines flat() and map()
+// const overalBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(overalBalance2);
