@@ -77,11 +77,16 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   // Emptying movements container
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  // Sorting
+  // Creating a copy using slice()
+  // if sort is true, then it'll sort, else display regular movements
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     // Displaying movements
@@ -224,6 +229,15 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+// Sort button
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted; // flipping sort
 });
 
 /////////////////////////////////////////////////
@@ -666,3 +680,49 @@ Test data:
 //   .flatMap(acc => acc.movements)
 //   .reduce((acc, mov) => acc + mov, 0);
 // console.log(overalBalance2);
+
+/*****************************************************/
+// 169. CHALLENGE #4
+/*****************************************************/
+
+// Need to come back to this
+
+/*****************************************************/
+// 170. Sorting Arrays
+/*****************************************************/
+
+// // Sorting Strings
+// const owners = ['Jonas', 'Zack', 'Adam', 'Martha'];
+// console.log(owners.sort()); // Sorting alphametically by mutating org. array
+// console.log(owners);
+
+// // Sorting Numbers
+// console.log(movements);
+
+// // Need to use callback function in sort()
+// // return < 0, A, B (keep order)
+// // return > 0, B, A (switch order)
+
+// // Ascending
+// // movements.sort((a, b) => {
+// //   if (a > b) return 1;
+// //   if (a < b) return -1;
+// // });
+// // console.log(movements);
+
+// // Simplifying
+// // If a > b, then it'll return a positive number, it doesn't need to return 1
+// movements.sort((a, b) => a - b);
+// console.log(movements);
+
+// // Descending
+// // movements.sort((a, b) => {
+// //   if (a > b) return -1;
+// //   if (a < b) return 1;
+// // });
+// // console.log(movements);
+
+// // Simplifying
+// // If a < b, then it'll return a negative number, it doesn't need to return -1
+// movements.sort((a, b) => b - a);
+// console.log(movements);
