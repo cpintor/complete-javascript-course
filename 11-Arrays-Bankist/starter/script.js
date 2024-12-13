@@ -11,6 +11,7 @@ const account1 = {
   interestRate: 1.2, // %
   pin: 1111,
   username: 'js',
+  type: 'premium',
 };
 
 const account2 = {
@@ -19,6 +20,7 @@ const account2 = {
   interestRate: 1.5,
   pin: 2222,
   username: 'jd',
+  type: 'standard',
 };
 
 const account3 = {
@@ -27,6 +29,7 @@ const account3 = {
   interestRate: 0.7,
   pin: 3333,
   username: 'stw',
+  type: 'premium',
 };
 
 const account4 = {
@@ -35,6 +38,7 @@ const account4 = {
   interestRate: 1,
   pin: 4444,
   username: 'ss',
+  type: 'basic',
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -726,3 +730,30 @@ Test data:
 // // If a < b, then it'll return a negative number, it doesn't need to return -1
 // movements.sort((a, b) => b - a);
 // console.log(movements);
+
+/*****************************************************/
+// 171. Array Grouping
+/*****************************************************/
+// console.log(movements);
+// const groupMovements = Object.groupBy(movements, movement =>
+//   movement > 0 ? 'deposits' : 'withdrawals'
+// );
+// console.log(groupMovements);
+
+// const groupedByActivity = Object.groupBy(accounts, account => {
+//   const movementCount = account.movements.length;
+
+//   if (movementCount >= 8) return 'very active';
+//   if (movementCount >= 4) return 'active';
+//   if (movementCount >= 1) return 'moderate';
+//   return 'inactive';
+// });
+
+// console.log(groupedByActivity);
+
+// // const groupedAccounts = Object.groupBy(accounts, account => account.type);
+// // console.log(groupedAccounts);
+
+// // Simplified syntax
+// const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
+// console.log(groupedAccounts);
