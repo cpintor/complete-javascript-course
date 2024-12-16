@@ -757,3 +757,42 @@ Test data:
 // // Simplified syntax
 // const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
 // console.log(groupedAccounts);
+
+/*****************************************************/
+// 172. More Ways of Creating and Filling Arrays
+/*****************************************************/
+
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+// const x = new Array(7);
+// console.log(x);
+// // console.log(x.map(() => 5));
+
+// // x.fill(1); // filling array with a value
+// x.fill(1, 3, 5); // filling array between 3 and 5
+// console.log(x);
+
+// arr.fill(23, 2, 6); // filling array with 23 between 2 and 6
+// console.log(arr);
+
+// // Array.from()
+// // Calling the array function and attaching it to the from function
+// // Creating a function programatically
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
+
+// // Underscore means variable is not being used
+// const z = Array.from({ length: 7 }, (_, i) => i + 1); // this callback function is like using map()
+// console.log(z);
+
+// // Getting balances
+// // using Array.from() to create array from node list
+// // Added mapping function to transform array
+// labelBalance.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => Number(el.textContent.replace('€', ''))
+//   );
+//   console.log(movementsUI);
+// });
