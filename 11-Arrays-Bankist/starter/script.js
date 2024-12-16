@@ -796,3 +796,23 @@ Test data:
 //   );
 //   console.log(movementsUI);
 // });
+
+/*****************************************************/
+// 173. Non-Destructive Alternatives: toReversed, toSorted, toSpliced, with
+/*****************************************************/
+
+// console.log(movements);
+// const reversedMov = movements.toReversed(); // non-distructive array reversed
+// console.log(reversedMov);
+// console.log(movements); //
+
+// // toSorted (sort), toSpliced (splice)
+
+// // Changing value in array
+// // movements[1] = 2000;
+// // console.log(movements);
+
+// // New way to change value
+// const newMovements = movements.copyWithin(1, 2000);
+// console.log(newMovements);
+// console.log(movements); // original array has not changed
