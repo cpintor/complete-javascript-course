@@ -597,7 +597,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"aenu9":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _webImmediateJs = require("core-js/modules/web.immediate.js");
+var _webImmediateJs = require("core-js/modules/web.immediate.js"); // Listening for event whenever the recipe hash (id) changes
+ // window.addEventListener('hashchange', showRecipe);
+ // window.addEventListener('load', showRecipe);
 var _iconsSvg = require("url:../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 var _runtime = require("regenerator-runtime/runtime");
@@ -611,6 +613,7 @@ const timeout = function(s) {
 };
 // https://forkify-api.jonas.io/
 ///////////////////////////////////////
+// Displaying the spinner between recipe loads
 const renderSpinner = function(parentEL) {
     const markup = `
     <div class="spinner">
@@ -625,10 +628,15 @@ const renderSpinner = function(parentEL) {
 // Async function runs in the background
 const showRecipe = async function() {
     try {
+        // Getting hash id from url to display content and removing # symbol
+        const id = window.location.hash.slice(1);
+        console.log(id);
+        // guard clause to check if no id so no error is returned
+        // old way to do this would be to wrap code below in the if statement
+        if (!id) return;
         // 1. Loading recipe
         renderSpinner(recipeContainer);
-        const res = await fetch(// 'https://forkify-api.jonas.io/api/v2/recipes/664c8f193e7aa067e94e8abd'
-        'https://forkify-api.jonas.io/api/v2/recipes/5ed6604591c37cdc054bc886');
+        const res = await fetch(`https://forkify-api.jonas.io/api/v2/recipes/${id}`);
         const data = await res.json();
         if (!res.ok) throw new Error(`${data.message} (${res.status})`);
         // removing underscores from API
@@ -697,7 +705,8 @@ const showRecipe = async function() {
           <div class="recipe__ingredients">
             <h2 class="heading--2">Recipe ingredients</h2>
             <ul class="recipe__ingredient-list">
-              ${recipe.ingredients.map((ing)=>{
+              ${recipe.ingredients// Looping through ingredients using map()
+        .map((ing)=>{
             return `
                   <li class="recipe__ingredient">
                     <svg class="recipe__icon">
@@ -739,7 +748,11 @@ const showRecipe = async function() {
         alert(err);
     }
 };
-showRecipe();
+// Loading the page immedietly with the content of the id
+[
+    'hashchange',
+    'load'
+].forEach((ev)=>window.addEventListener(ev, showRecipe));
 
 },{"url:../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","core-js/modules/web.immediate.js":"49tUX","regenerator-runtime/runtime":"dXNgZ"}],"loVOp":[function(require,module,exports,__globalThis) {
 module.exports = require("9bcc84ee5d265e38").getBundleURL('hWUTQ') + "icons.dfd7a6db.svg" + "?" + Date.now();

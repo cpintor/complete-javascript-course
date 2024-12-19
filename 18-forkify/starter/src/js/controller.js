@@ -16,6 +16,7 @@ const timeout = function (s) {
 
 ///////////////////////////////////////
 
+// Displaying the spinner between recipe loads
 const renderSpinner = function (parentEL) {
   const markup = `
     <div class="spinner">
@@ -31,11 +32,18 @@ const renderSpinner = function (parentEL) {
 // Async function runs in the background
 const showRecipe = async function () {
   try {
+    // Getting hash id from url to display content and removing # symbol
+    const id = window.location.hash.slice(1);
+    console.log(id);
+
+    // guard clause to check if no id so no error is returned
+    // old way to do this would be to wrap code below in the if statement
+    if (!id) return;
+
     // 1. Loading recipe
     renderSpinner(recipeContainer);
     const res = await fetch(
-      // 'https://forkify-api.jonas.io/api/v2/recipes/664c8f193e7aa067e94e8abd'
-      'https://forkify-api.jonas.io/api/v2/recipes/5ed6604591c37cdc054bc886'
+      `https://forkify-api.jonas.io/api/v2/recipes/${id}`
     );
     const data = await res.json();
 
@@ -115,6 +123,7 @@ const showRecipe = async function () {
             <h2 class="heading--2">Recipe ingredients</h2>
             <ul class="recipe__ingredient-list">
               ${recipe.ingredients
+                // Looping through ingredients using map()
                 .map(ing => {
                   return `
                   <li class="recipe__ingredient">
@@ -161,4 +170,8 @@ const showRecipe = async function () {
   }
 };
 
-showRecipe();
+// Loading the page immedietly with the content of the id
+['hashchange', 'load'].forEach(ev => window.addEventListener(ev, showRecipe));
+// Listening for event whenever the recipe hash (id) changes
+// window.addEventListener('hashchange', showRecipe);
+// window.addEventListener('load', showRecipe);
