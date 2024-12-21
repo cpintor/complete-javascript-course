@@ -31,7 +31,7 @@ class RecipeView {
     this.#parentElement.insertAdjacentHTML('afterBegin', markup);
   };
 
-  // Passing controlRecipe as handler
+  // Passing controlRecipe() as handler
   addHandlerRender(handler) {
     // Loading the page immedietly with the content of the id
     ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));

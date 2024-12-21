@@ -2599,7 +2599,7 @@ class RecipeView {
         this.#parentElement.innerHTML = '';
         this.#parentElement.insertAdjacentHTML('afterBegin', markup);
     };
-    // Passing controlRecipe as handler
+    // Passing controlRecipe() as handler
     addHandlerRender(handler) {
         // Loading the page immedietly with the content of the id
         [
