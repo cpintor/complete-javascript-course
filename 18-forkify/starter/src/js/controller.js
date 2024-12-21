@@ -33,14 +33,12 @@ const controlRecipes = async function () {
     // taking data from step 1 and passed into render() in view file
     recipeView.render(model.state.recipe);
   } catch (err) {
-    alert(err);
+    console.log(err);
   }
 };
 
-// Loading the page immedietly with the content of the id
-['hashchange', 'load'].forEach(ev =>
-  window.addEventListener(ev, controlRecipes)
-);
-// Listening for event whenever the recipe hash (id) changes
-// window.addEventListener('hashchange', controlRecipes);
-// window.addEventListener('load', controlRecipes);
+// Publisher subscriber pattern
+const init = function () {
+  recipeView.addHandlerRender(controlRecipes);
+};
+init();
