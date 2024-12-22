@@ -1,22 +1,16 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
+import searchView from './views/searchView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import recipeView from './views/recipeView.js';
-
-const recipeContainer = document.querySelector('.recipe');
-
-// https://forkify-api.jonas.io/
-
-///////////////////////////////////////
+import { async } from 'regenerator-runtime';
 
 // Async function runs in the background
 const controlRecipes = async function () {
   try {
     // Getting hash id from url to display content and removing # symbol
     const id = window.location.hash.slice(1);
-    console.log(id);
 
     // guard clause to check if no id so no error is returned
     // old way to do this would be to wrap code below in the if statement
@@ -38,8 +32,27 @@ const controlRecipes = async function () {
   }
 };
 
+const controlSearchResults = async function (params) {
+  try {
+    // 1. Get search query
+    const query = searchView.getQuery();
+    if (!query) return;
+
+    // 2. Load search results
+    await model.loadSearchResults(query);
+
+    // 3. Render results
+    console.log(model.state.search.results);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+controlSearchResults();
+
 // Publisher subscriber pattern
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
+  searchView.addHandlerSearch(controlSearchResults);
 };
 init();
