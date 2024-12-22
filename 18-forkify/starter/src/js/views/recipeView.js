@@ -5,6 +5,8 @@ console.log(Fraction);
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
   #data;
+  #errorMessage = 'We could not find that recipe. Please try another one.';
+  #message = '';
 
   // recieves data from step 2 in controller file to store in this.#data
   render(data) {
@@ -19,7 +21,7 @@ class RecipeView {
   }
 
   // Displaying the spinner between recipe loads
-  renderSpinner = function () {
+  renderSpinner() {
     const markup = `
       <div class="spinner">
         <svg>
@@ -27,9 +29,39 @@ class RecipeView {
         </svg>
       </div>
     `;
-    this.#parentElement.innerHTML = '';
+    this.#clear();
     this.#parentElement.insertAdjacentHTML('afterBegin', markup);
-  };
+  }
+
+  renderError(message = this.#errorMessage) {
+    const markup = `
+        <div class="error">
+            <div>
+              <svg>
+                <use href="${icons}#icon-alert-triangle"></use>
+              </svg>
+            </div>
+            <p>${message}</p>
+        </div>
+    `;
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML('afterBegin', markup);
+  }
+
+  renderMessage(message = this.#message) {
+    const markup = `
+        <div class="message">
+            <div>
+              <svg>
+                <use href="${icons}#icon-smile"></use>
+              </svg>
+            </div>
+            <p>${message}</p>
+        </div>
+    `;
+    this.#clear();
+    this.#parentElement.insertAdjacentHTML('afterBegin', markup);
+  }
 
   // Passing controlRecipe() as handler
   addHandlerRender(handler) {
