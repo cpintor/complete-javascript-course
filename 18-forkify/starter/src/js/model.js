@@ -14,7 +14,7 @@ export const state = {
 // Controller passing id
 export const loadRecipe = async function (id) {
   try {
-    const data = await getJSON(`${API_URL}${id}`);
+    const data = await getJSON(`${API_URL}/${id}`);
 
     // removing underscores from API
     const { recipe } = data.data;
